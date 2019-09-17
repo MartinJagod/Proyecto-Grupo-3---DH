@@ -1,0 +1,36 @@
+/* HOME */
+
+.fondoGris{
+  background-color: #F5F5F5;
+
+
+  padding: 1em;
+}
+.espaciado{
+  padding-top: 1em;
+}
+
+h2{
+  font-family: 'Oswald', sans-serif;
+    font-size: 1.8em;
+}
+
+h3{
+  font-size: 1.2em;
+  font-family: 'Oswald', sans-serif;
+}
+h4{
+  font-family: 'Oswald', sans-serif;
+}
+h5{
+  font-family: 'Oswald', sans-serif;
+  margin-top: 5px;
+}
+h6{
+  font-family: 'Oswald', sans-serif;
+}
+
+p{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
