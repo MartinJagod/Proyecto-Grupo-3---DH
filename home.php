@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Underground</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto&display=swap" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/d74764b1ca.js"></script>
+	<script src="https://kit.fontawesome.com/d74764b1ca.js"></script>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+		
+	
 </head>
 
 
@@ -51,7 +59,7 @@
 
 
             <li class="list-item">
-              <a class="btn btn-link" href="#">
+              <a class="btn btn-link" id="mensajes" href="#">
               <h5><i class="fas fa-envelope"></i>  Mensajes</h5>
               </a>
 						</li>
@@ -63,7 +71,7 @@
             </li>
 
             <li class="list-item">
-              <a class="btn btn-link" href="#">
+              <a class="btn btn-link" id="perfil" href="#">
               <h5><i class="fas fa-user-circle"></i> Perfil</h5>
               </a>
 						</li>
@@ -96,7 +104,7 @@
 
           <!-- que estas haciendo -->
 
-                  <div class="container border-bottom fondoGris">
+			<div class="container border-bottom fondoGris">
 
           	<div class="row">
           		<div class="col-md-12">
@@ -124,13 +132,13 @@
           								</div>
           								<div class="col-md-4 ">
 
-                            <button type="button" class="btn btn-primary btn-sm">
+                            					<button type="button" class="btn btn-primary btn-sm">
           										<i class="far fa-smile fa-2x"></i>
           									</button>
           								</div>
           								<div class="col-md-4">
 
-                            <button type="button" class="btn btn-primary btn-sm">
+												<button type="button" class="btn btn-primary btn-sm">
           										<i class="fas fa-question fa-2x"></i>
           									</button>
           								</div>
@@ -138,19 +146,24 @@
           						</div>
 
           					</div>
+
           				</div>
+									
           			</div>
           		</div>
           	</div>
           </div>
 
 
+	      <div class="container fondoDiv" id="centrali">
 
+			 <!-- <h3>Aqui va Todo</h3>		   -->
+		  </div>
 
 
 
 <!-- se cierra canvas central -->
-				</div>
+		</div>
 
 
 
@@ -271,12 +284,24 @@
 
 
 
-
-
 <!--  FIN DE  HOME -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#mensajes').on('click', function() {
+        $("#centrali").load('mimensajes.php');
+        return false;
+    });
+
+     $('#perfil').on('click', function() {
+        $("#centrali").load('editregistro.php');
+        return false;
+    });
+	
+});
+</script>

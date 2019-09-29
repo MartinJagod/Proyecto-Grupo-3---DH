@@ -180,7 +180,7 @@
 <script>
     $(document).ready(function(){
         $('#cerrar').on('click',function(){
-            window.location='registro.php?nomus=<?php echo $_POST["nomusu"];?>'+'&&emailes=<?php echo $_POST["mail"];?>';
+            window.location='registrar.php?nomus=<?php echo $_POST["nomusu"];?>'+'&&emailes=<?php echo $_POST["mail"];?>';
         });
 
 
