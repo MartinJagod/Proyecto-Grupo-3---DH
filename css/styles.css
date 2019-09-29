@@ -2,14 +2,19 @@
 
 .fondoGris{
   background-color: #F5F5F5;
-
-
   padding: 1em;
 }
+
 .espaciado{
   padding-top: 1em;
 }
 
+div.principallogin{
+  display:inline-block;
+  
+  align-content: center;
+  height: 100%;
+}
 h2{
   font-family: 'Oswald', sans-serif;
     font-size: 1.8em;
@@ -35,6 +40,7 @@ p{
   font-family: 'Roboto', sans-serif;
 }
 
+<<<<<<< HEAD
 
 .fondoDiv{
   background: rgb(209, 211, 209);
@@ -46,3 +52,9 @@ p{
   background: linear-gradient(45deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 67%, rgba(219,219,219,1) 74%, rgba(254,254,254,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
 }
+=======
+div.banner{
+  margin-top: 150px;
+
+}
+>>>>>>> 9f2794cfef2c4c5df815e8280408881f995733b4
