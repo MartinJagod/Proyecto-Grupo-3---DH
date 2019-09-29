@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
  include ("./header.php");
 
@@ -11,6 +12,13 @@ $email='';
       if(!isset($_POST["password"]) || !isset($_POST["email"])){
           return "Debes completar los campos";
         }
+=======
+<<<<<<< HEAD
+
+
+=======
+<html lang="en">
+>>>>>>> 4d70d207e65457a238df9bb0f58baa29a85d5923
 
         $pass=$_POST['password'];
         $email=$_POST['email'];
@@ -72,6 +80,7 @@ $email='';
 						</button>
 					</form>
 				</div>
+>>>>>>> 9f2794cfef2c4c5df815e8280408881f995733b4
 
 
 				<div class="container shadow p-3 mb-5 bg-white rouded col-md-4 ">
