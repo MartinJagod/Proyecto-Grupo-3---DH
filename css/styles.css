@@ -4,6 +4,10 @@
   background-color: #F5F5F5;
   padding: 1em;
 }
+.fondoGris2{
+  background-color: #D8D8D8;
+
+}
 
 .espaciado{
   padding-top: 1em;
@@ -11,9 +15,8 @@
 
 div.principallogin{
   display:inline-block;
-  
   align-content: center;
-  height: 100%;
+
 }
 h2{
   font-family: 'Oswald', sans-serif;
@@ -41,6 +44,6 @@ p{
 }
 
 div.banner{
-  margin-top: 150px;
+
 
 }

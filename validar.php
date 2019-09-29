@@ -6,7 +6,7 @@
     $pass='';
     $email='';
 
-    echo"validando";
+
       if(!isset($_POST["password"]) || !isset($_POST["email"])){
           return "Debes completar los campos";
         }
@@ -32,11 +32,13 @@
             $arrayUsuarios = json_decode($usuarios,true);
           foreach ($arrayUsuarios as $value) {
             if ( $value["email"]==$email && password_verify($pass, $value["password"] )){
+              session_start();
+              $_SESSION=$value;
                include ("./home.php");}
             }
 
             }
-            exit;
+            return false;
           }
 
  ?>
