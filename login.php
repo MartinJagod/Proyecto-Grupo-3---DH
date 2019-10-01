@@ -1,70 +1,21 @@
-<<<<<<< HEAD
-<?php
- include ("./header.php");
-
-$errores=[];
-$pass='';
-$email='';
-
-  if ($_POST) {
-				include("./giratorio.html");
-
-      if(!isset($_POST["password"]) || !isset($_POST["email"])){
-          return "Debes completar los campos";
-        }
-=======
-<<<<<<< HEAD
-
-
-=======
 <html lang="en">
->>>>>>> 4d70d207e65457a238df9bb0f58baa29a85d5923
 
-        $pass=$_POST['password'];
-        $email=$_POST['email'];
+<?php include ("./header.php"); ?>
 
-        if (empty($_POST['password'])){
-          $errores[]= "Debes completar password";
-        }
+<?php include ("./validar.php"); ?>
 
-        if (empty($_POST['email'])){
-          $errores[]="Debes completar el email";
-        }
 
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-          $errores[]="Debes completar email valido";
-        }
-
-        if (empty ($errores))
-          {
-            $usuarios = file_get_contents("archivoTemporal.json");
-            $arrayUsuarios = json_decode($usuarios,true);
-          foreach ($arrayUsuarios as $value) {
-            if ( $value["email"]==$email && password_verify($pass, $value["password"] )){
-              session_start();
-              $_SESSION=$value;
-               include ("./home.php");}
-            }} else {
-							var_dump($errores);
-							foreach ($errores as $value) {
-							  if (isset($value)){echo $value;
-							   echo"<br>";}
-            }
-          }}
-?>
-
-<html lang="en">
 		<div class="container-fluid  col-md-12 banner principallogin ">
 			<div class="row col-md-12 banner ">
 
-				<div class=" container col-md-4 fondoGris2">
+				<div class=" container col-md-4 fondoGris">
 
-					<form role="form" method='post' >
+					<form role="form" action= "validar.php" method='post' >
 						<div class="form-group">
 							<label for="exampleInputEmail1">
 								Direccion de Email
 							</label>
-							<input type="email" class="form-control" name="email"  id="email" value=<?=$email?>>
+							<input type="email" class="form-control" name="email" id="email">
 						</div>
 
 						<div class="form-group">
@@ -72,16 +23,14 @@ $email='';
 							<label for="exampleInputPassword1">
 								Password
 							</label>
-							<input type="password" class="form-control" name="password"  id="password" value=<?=$pass?>>
+							<input type="password" class="form-control" name="password" id="password">
 						</div>
 
 						<button type="submit" class="btn btn-primary">
-							Ingreeeesar
+							Submit
 						</button>
 					</form>
 				</div>
->>>>>>> 9f2794cfef2c4c5df815e8280408881f995733b4
-
 
 				<div class="container shadow p-3 mb-5 bg-white rouded col-md-4 ">
 					<address>

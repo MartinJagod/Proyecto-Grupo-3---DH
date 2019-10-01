@@ -6,7 +6,6 @@
     $pass='';
     $email='';
 
-
       if(!isset($_POST["password"]) || !isset($_POST["email"])){
           return "Debes completar los campos";
         }
@@ -28,7 +27,7 @@
 
         if (empty ($errores))
           {
-            $usuarios = file_get_contents("archivoTemporal.json");
+            $usuarios = file_get_contents("usuarios.json");
             $arrayUsuarios = json_decode($usuarios,true);
           foreach ($arrayUsuarios as $value) {
             if ( $value["email"]==$email && password_verify($pass, $value["password"] )){
@@ -38,7 +37,8 @@
             }
 
             }
-            return false;
+            $_POST=[];
+            include ('./registrar.php');
           }
 
  ?>
