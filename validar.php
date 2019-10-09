@@ -30,10 +30,12 @@
             $usuarios = file_get_contents("usuarios.json");
             $arrayUsuarios = json_decode($usuarios,true);
           foreach ($arrayUsuarios as $value) {
-            if ( $value["email"]==$email && password_verify($pass, $value["password"] )){
+            if ( $value["email"]==$email && password_verify($pass, $value["pass"] )){
               session_start();
               $_SESSION=$value;
-               include ("./home.php");}
+               header("Location:./home.php");
+
+             }
             }
 
             }
