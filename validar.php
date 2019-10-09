@@ -32,15 +32,13 @@
           foreach ($arrayUsuarios as $value) {
             if ( $value["email"]==$email && password_verify($pass, $value["pass"] )){
               session_start();
-              $_SESSION=$value;
-               header("Location:./home.php");
-
+              $_SESSION[] = $value;
+              return header("Location:./home.php");
              }
             }
 
             }
             $_POST=[];
-            include ('./registrar.php');
+      header ('Location:./registrar.php');
           }
-
  ?>
