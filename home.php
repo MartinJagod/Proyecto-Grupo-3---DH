@@ -1,8 +1,11 @@
 
-<?php session_start(); ?>
 
 <html lang="en">
   <head>
+    <?php
+    session_start();
+
+    ?>
     <!--    Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,7 +51,7 @@
 
 						<li class="list-item">
               <a class="btn btn-link" href="#">
-              <h5><i class="fas fa-home"></i>  Inicio</h5>
+              <h5><i class="fas fa-home"></i> Inicio</h5>
               </a>
 						</li>
 
@@ -73,8 +76,7 @@
 
             <li class="list-item">
               <a class="btn btn-link" id="perfil" href="#">
-              <h5><i class="fas fa-user-circle"></i><?php
-              echo ($_SESSION ["nombre"]); ?></h5>
+              <h5><i class="fas fa-user-circle"></i>Perfil</h5>
               </a>
 						</li>
 
@@ -99,7 +101,8 @@
 				<div class="col-md-6 border">
 
 					<h2 class="border-bottom">
-						Inicio
+            <?php
+            echo (mb_strtoupper( $_SESSION["nombre"])); ?>
 					</h2>
 
 
