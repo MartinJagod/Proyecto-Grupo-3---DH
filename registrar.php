@@ -2,39 +2,41 @@
 
 <?php
   require_once('objeto.php');
- 
- 
+
+
   $errores=[];
-  
-  
+
+
   $nomus="";
   $emailes="";
   $passw="";
 
   if($_POST){
-    
+
     $errore=validarForm($errores);
     $errore=validarExistencia($errore);
- 
+
     if ($errore[0]=="El usuario se grabo con exito!!"){
-        
-      
+
+
          cargarUsuarios();
-         
-        
+
+
+         return header("Location:./home.php");
+
     }
-   
+
    }
    if($_GET){
     $nomus = $_GET["nomus"];
     $emailes=$_GET["emailes"];
    }
-        
-   
+
+
 
     //   echo "<script>alert('hola');</script>";
-  
-  
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +45,12 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-      
+
+
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
          <link href="css/styles.css" rel="stylesheet">
          <script src="https://kit.fontawesome.com/d771485d91.js" crossorigin="anonymous"></script>
-        
+
 
 
 
@@ -56,8 +58,8 @@
 
 
     <body class="fondoBodyModal">
-   
-           
+
+
           <div class="modal" tabindex="-1" role="dialog" id="errores">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -68,32 +70,32 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                
-                   
-                      
+
+
+
                        <ul style="list-style:none;" class="d-flex flex-column justify-content-center">
                         <?php foreach($errore as $error){
-                        
+
                         if($error!="El usuario se grabo con exito!!"){?>
                            <li class="text-danger"><i class="fas fa-exclamation"></i><?=$error?></li>
-                        <?php 
+                        <?php
                           }else{
                                 echo '<li class="text-success"><i class="fas fa-check"></i>'.$error.'</li>';
                              }
                         }
-                      
-                       
+
+
                         ?></ul>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-outline-danger"  id="cerrar">Close</button>
-                    
+
                 </div>
                 </div>
             </div>
          </div>
 
-       
+
            <div class="modal" role="dialog" id="myModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -107,10 +109,10 @@
                         </div>
                         <div class="modal-body">
 
-                        
+
 
                                     <div class="form-group">
-                                       
+
                                         <label for="ejenomusuario">Nombre</label>
                                         <input type="text" class="form-control" id="ejemnomusuario" aria-describedby="emailHelp" placeholder="Ingrese nombre de Usuario" name="nomusu" value=<?=$nomus?>>
                                         <small id="emailHelp" class="form-text text-muted">Aqui va el nombre de Usuario</small>
@@ -129,53 +131,53 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
                                         <button type="submit" class="btn btn-primary" id="guardar">Guardar Cambios</button>
-                                     
-                                    
+
+
                                     </div>
                             </form>
                     </div>
-                    
+
                 </div>
             <!-- </div> -->
            </div>
            <!-- final del modal de ingreso -->
-          
+
 
 
            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-       
+
     </body>
 </html>
 
 
 
- 
-<?php 
-  
+
+<?php
+
     if(!isset($_POST['nomusu'])){
-   
+
         echo " <script>
-                    
+
                  $('#myModal').modal('show');
-        
-               </script>";        
-              
+
+               </script>";
+
     }else{
 
         echo "<script>
                 $('#myModal').modal('hide');
                 $('#errores').modal('show');
-                
+
             </script>";
-         
+
 
     }
-    
-      
-        
+
+
+
 ?>
 <script>
     $(document).ready(function(){
