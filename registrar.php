@@ -12,15 +12,24 @@
   $passw="";
 
   if($_POST){
-    
+
     $errore=validarForm($errores);
     $errore=validarExistencia($errore);
+   
  
     if ($errore[0]=="El usuario se grabo con exito!!"){
         
       
          cargarUsuarios();
+         echo "<script>
+               $('#errores').modal('show');
          
+         </script>";
+         header('Location: http://localhost/Proyecto-Grupo-3---DH/registrar.php');
+
+        
+
+        
         
     }
    
@@ -97,7 +106,7 @@
            <div class="modal" role="dialog" id="myModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <form role="form" method="post" >
+                      <form role="form" method="post" enctype="multipart/form-data">
                         <div class="modal-header">
                             <img src="img\logo1.jpg" class="img-fluid" alt="Responsive image">
                             <!--<h5 class="modal-title">Modal title</h5>-->
@@ -125,10 +134,16 @@
                                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass">
                                         <small id="passHelp" class="form-text text-muted">Debe tener mas de 6 caracteres y comenzar con mayuscula</small>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="foto">Elegir una imagen de Perfil</label>
+                                        <input type="file" class="form-control btn btn-primary" id="foto"  name="foto">
+                                        <img src="img/usuarios/anonymous.png" class="img-thumbnail" width="100px">
+                                        <small id="passHelp" class="form-text text-muted">La imagen debe ser de un tamaño maximo de 150kb</small>
+                                    </div>
                                     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                                        <button type="submit" class="btn btn-primary" id="guardar">Guardar Cambios</button>
+                                        <button type="submit" class="btn btn-primary" id="guardar">Registrar</button>
                                      
                                     
                                     </div>
