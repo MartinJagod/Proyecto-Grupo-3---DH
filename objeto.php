@@ -1,6 +1,18 @@
 <?php
    function cargarUsuarios(){
      $ideaux=1;
+    
+     $foto="img/usuarios/anonymous.png";
+     //  echo "<script>alert('".$_FILES["foto"]["error"]."');</script>";
+      if(isset($_FILES["foto"]) && $_FILES["foto"]["error"]==0 && $_FILES["foto"]["size"] < 151000){
+        $nombrefoto = $_FILES["foto"]["name"];
+        $tmpfoto= $_FILES["foto"]["tmp_name"];
+        $ext = pathinfo($nombrefoto, PATHINFO_EXTENSION);
+        $nomfoto=rand(1,1000).$_POST["nomusu"];
+        $foto="img/usuarios/".$nomfoto.".".$ext;
+        move_uploaded_file($tmpfoto, $foto);
+          
+      }
 
     $usuarios = file_get_contents("usuarios.json");
     $listadoUs=json_decode($usuarios, true);
@@ -13,8 +25,9 @@
             "nombre" => $_POST["nomusu"],
             "email" => $_POST["mail"],
             "pass" => $hash,
-             "id" => $ideaux,
-            "estado" => "1"
+            "id" => $ideaux,
+            "estado" => "1",
+            "foto" => $foto
         ];
        
   
@@ -41,6 +54,7 @@
           $errores[]="ya existe un usuario con ese email";
              
        }
+
      }
 
      if (empty($errores)){
@@ -78,7 +92,13 @@
       }
 
      
+      if($_FILES["foto"]["size"] > 150000){
+        $errores[]="La imagen supera el tamaño sugerido";
+      
+      }
 
+       echo $_FILES["foto"]["size"];
+      
       
      
 
@@ -86,4 +106,7 @@
     return $errores;
       
    }
+
+
+   
 ?>
