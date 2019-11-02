@@ -97,7 +97,7 @@
       
       }
 
-       echo $_FILES["foto"]["size"];
+     
       
       
      

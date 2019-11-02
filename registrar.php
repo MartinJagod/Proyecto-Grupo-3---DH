@@ -1,8 +1,6 @@
-
-
 <?php
   require_once('objeto.php');
- 
+  include('conexion.php');
  
   $errores=[];
   
@@ -15,11 +13,11 @@
 
     $errore=validarForm($errores);
     $errore=validarExistencia($errore);
-   
- 
+    var_dump($errore);
+
     if ($errore[0]=="El usuario se grabo con exito!!"){
         
-      
+        echo "<script>alert('Hola');</script>";
          cargarUsuarios();
          echo "<script>
                $('#errores').modal('show');
@@ -195,7 +193,8 @@
 <script>
     $(document).ready(function(){
         $('#cerrar').on('click',function(){
-            window.location='registrar.php?nomus=<?php echo $_POST["nomusu"];?>'+'&&emailes=<?php echo $_POST["mail"];?>';
+           $('#errores').modal('hide');
+           $('#myModal').modal('show');
         });
 
 
