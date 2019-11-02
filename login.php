@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
 <html lang="en">
 
 <?php include ("./header.php"); ?>
@@ -35,7 +31,6 @@
 						</button>
 					</form>
 				</div>
->>>>>>> 9f2794cfef2c4c5df815e8280408881f995733b4
 
 				<div class="container shadow p-3 mb-5 bg-white rouded col-md-4 ">
 					<address>

@@ -1,6 +1,11 @@
 
+
 <html lang="en">
   <head>
+    <?php
+    session_start();
+
+    ?>
     <!--    Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,8 +24,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-		
-	
+
+
 </head>
 
 
@@ -28,14 +33,13 @@
 
 <!-- ESTO ES  HOME -->
 
-
-
 <div class="container espaciado">
 	<div class="row">
 		<div class="col-md-12">
 
 
 <!-- ESTO ES CANVAS IZQUIERDO -->
+
 
 			<div class="row">
 				<div class="col-md-3">
@@ -47,7 +51,7 @@
 
 						<li class="list-item">
               <a class="btn btn-link" href="#">
-              <h5><i class="fas fa-home"></i>  Inicio</h5>
+              <h5><i class="fas fa-home"></i> Inicio</h5>
               </a>
 						</li>
 
@@ -72,7 +76,7 @@
 
             <li class="list-item">
               <a class="btn btn-link" id="perfil" href="#">
-              <h5><i class="fas fa-user-circle"></i> Perfil</h5>
+              <h5><i class="fas fa-user-circle"></i>Perfil</h5>
               </a>
 						</li>
 
@@ -97,7 +101,8 @@
 				<div class="col-md-6 border">
 
 					<h2 class="border-bottom">
-						Inicio
+            <?php
+            echo (mb_strtoupper( $_SESSION["nombre"])); ?>
 					</h2>
 
 
@@ -148,7 +153,7 @@
           					</div>
 
           				</div>
-									
+
           			</div>
           		</div>
           	</div>
@@ -288,6 +293,8 @@
 
 
 </body>
+
+
 </html>
 
 
@@ -302,6 +309,6 @@ $(document).ready(function() {
         $("#centrali").load('editregistro.php');
         return false;
     });
-	
+
 });
 </script>

@@ -20,7 +20,7 @@
       $ideaux=count($listadoUs)+1;
     }
     $hash=password_hash($_POST["pass"], PASSWORD_DEFAULT);
-    $usuario = 
+    $usuario =
         [
             "nombre" => $_POST["nomusu"],
             "email" => $_POST["mail"],
@@ -29,16 +29,18 @@
             "estado" => "1",
             "foto" => $foto
         ];
-       
-  
+        session_start();
+        $_SESSION=$usuario;
+
+
 
 
      $listadoUs[] = $usuario;
     $jusuario= json_encode($listadoUs);
     file_put_contents("usuarios.json", $jusuario,true);
-    
 
-     
+
+
 
    }
 
@@ -46,13 +48,13 @@
    function validarExistencia($errores){
     $jusuario = file_get_contents("usuarios.json");
     $usuarios=json_decode($jusuario, true);
- 
+
      foreach ($usuarios as $usuario){
-     
+
        if ($usuario["email"]==$_POST["mail"]){
-             
+
           $errores[]="ya existe un usuario con ese email";
-             
+
        }
 
      }
@@ -62,11 +64,11 @@
      }
     return($errores);
    }
-  
-   
+
+
 
    function validarForm($errores){
-     
+
       if(empty($_POST['nomusu'])){
           $errores[]='El nombre debe llevar algun valor';
           $s=1;
@@ -76,7 +78,7 @@
           $errores[]='El mail no puede  estar vacio';
           $s=1;
       }
-      
+
 
       if(empty($_POST['pass'])){
         $errores[]='La contraseña no debe estar vacia';
@@ -91,6 +93,7 @@
         $s=1;
       }
 
+<<<<<<< HEAD
      
       if($_FILES["foto"]["size"] > 150000){
         $errores[]="La imagen supera el tamaño sugerido";
@@ -101,12 +104,22 @@
       
       
      
+=======
 
-    
+>>>>>>> 93659cfa55c00d80af3faa399a0cf0af77470ad6
+
+
+
+
+
     return $errores;
-      
+
    }
+<<<<<<< HEAD
 
 
    
 ?>
+=======
+?>
+>>>>>>> 93659cfa55c00d80af3faa399a0cf0af77470ad6
