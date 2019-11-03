@@ -3,7 +3,7 @@
      $ideaux=1;
     
      $foto="img/usuarios/anonymous.png";
-     //  echo "<script>alert('".$_FILES["foto"]["error"]."');</script>";
+    
       if(isset($_FILES["foto"]) && $_FILES["foto"]["error"]==0 && $_FILES["foto"]["size"] < 151000){
         $nombrefoto = $_FILES["foto"]["name"];
         $tmpfoto= $_FILES["foto"]["tmp_name"];
@@ -14,30 +14,39 @@
           
       }
 
-    $usuarios = file_get_contents("usuarios.json");
-    $listadoUs=json_decode($usuarios, true);
-    if (!empty($listadoUs)){
-      $ideaux=count($listadoUs)+1;
-    }
+    // $usuarios = file_get_contents("usuarios.json");
+    // $listadoUs=json_decode($usuarios, true);
+    // if (!empty($listadoUs)){
+    //   $ideaux=count($listadoUs)+1;
+    // }
     $hash=password_hash($_POST["pass"], PASSWORD_DEFAULT);
     $usuario =
         [
             "nombre" => $_POST["nomusu"],
             "email" => $_POST["mail"],
             "pass" => $hash,
-            "id" => $ideaux,
+            // "id" => $ideaux,
             "estado" => "1",
             "foto" => $foto
         ];
+
+        $tabla='usuarios';
+        $respuesta=ModeloTablas::mdlIngresoUsuarios($tabla,$usuario);
+
+        
+          echo '<script>
+                
+               alert("Registro Exitoso");
+          </script>';
+          
+        
+      
         session_start();
         $_SESSION=$usuario;
 
-
-
-
-     $listadoUs[] = $usuario;
-    $jusuario= json_encode($listadoUs);
-    file_put_contents("usuarios.json", $jusuario,true);
+    //  $listadoUs[] = $usuario;
+    // $jusuario= json_encode($listadoUs);
+    // file_put_contents("usuarios.json", $jusuario,true);
 
 
 
@@ -58,7 +67,6 @@
        }
 
      }
-
      if (empty($errores)){
          $errores[]="El usuario se grabo con exito!!";
      }
@@ -68,7 +76,7 @@
 
 
    function validarForm($errores){
-
+      $s=0;
       if(empty($_POST['nomusu'])){
           $errores[]='El nombre debe llevar algun valor';
           $s=1;
@@ -93,21 +101,16 @@
         $s=1;
       }
 
-<<<<<<< HEAD
      
       if($_FILES["foto"]["size"] > 150000){
         $errores[]="La imagen supera el tamaño sugerido";
-      
+        $s=1;
       }
 
-     
       
       
+      
      
-=======
-
->>>>>>> 93659cfa55c00d80af3faa399a0cf0af77470ad6
-
 
 
 
@@ -115,11 +118,7 @@
     return $errores;
 
    }
-<<<<<<< HEAD
 
 
    
 ?>
-=======
-?>
->>>>>>> 93659cfa55c00d80af3faa399a0cf0af77470ad6
